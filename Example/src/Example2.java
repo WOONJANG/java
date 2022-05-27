@@ -11,14 +11,14 @@ public class Example2 {
 		 Scanner sc = new Scanner(System.in);
 		 System.out.println("구구단에 대한 숫자를 입력하세요??");
 		 int ipgugu = sc.nextInt();
-		 int aa;
-		 int bb;
-		 int total = 0;
+		 int a; //1~9 반복
+		 int b; // 입력* 9까지 반복 
+		 int total = 0; // 합
 		 sc.close();
 
-		 for (aa=1; aa<=9; aa++) {
-		 bb= ipgugu * aa;
-		 total += bb;
+		 for (a=1; a<=9; a++) {
+		 b= ipgugu * a;
+		 total += b;
 		 }
 		 if(total%2==0) {
 			 System.out.printf("입력하신 %d단의 구구단의 총합은 %d 이며, 본 결과값은 짝수입니다.", ipgugu, total);
