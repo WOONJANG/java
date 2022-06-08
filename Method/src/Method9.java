@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Method9 {
 
@@ -11,7 +12,7 @@ public class Method9 {
 		 * 단, private 및 return을 활용하여 프로그램을 작성합니다.
 		 */
 		menus mn = new menus();
-		
+		System.out.println(Arrays.toString(mn.resultdata()));
 		
 		
 
@@ -20,7 +21,8 @@ public class Method9 {
 }
 
 class menus{
-	private String ms[][];
+	private String msdata[][];
+	private String result[]; 
 	
 	public menus() {
 		//=====================================================
@@ -28,9 +30,34 @@ class menus{
 				{"로켓배송", "로켓프레시", "쿠팡비즈", "골드박스", "이벤트", "설날", "추석"},
 				{"Y", "Y", "N", "Y", "Y", "N", "Y"}
 		};
-		//=====================================================
-		
-		
-		
+		this.msdata = ms;
+		redata();
 	}
+		//=====================================================
+
+		public void redata() {
+			int navi_ea = this.msdata[0].length;
+			int f;
+			int ct = 0;
+			String navi_em[] = new String[navi_ea];
+	
+			for (f=0; f<navi_ea; f++) {
+				if(this.msdata.equals("Y")) {
+					navi_em[ct] = this.msdata[0][f];
+					ct++;
+				}
+				this.result = navi_em;
+				}
+			}
+			public String[] resultdata() {
+				
+				return this.result;
+			
+			}
 }
+	
+	
+
+
+
+
