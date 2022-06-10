@@ -23,38 +23,30 @@ public class Example1 {
 		Example2 ex2 = new Example2();
 		Scanner sc = new Scanner(System.in);
 //==============================================
-		int min = 1; // 최소값
-		int max = 9; // 최대값 - 1
+						//랜덤 유틸 형식
 		Random random = new Random();
-		int pcrd = random.nextInt(max + min) + min;
-		System.out.println(pcrd); // 랜덤값
-//		int user_input = sc.nextInt();
-//		ex2.setter(int user_input, int pc_num);
+		int pcrd = random.nextInt(10) + 1; // pc 랜덤값
+	//	System.out.println(pcrd); // pc 랜덤값 출력 확인
  //==============================================
+/*						//일반 랜덤 형식 (random double)
+		double pcrd2 = (int)(Math.random()*10+1);
+		System.out.println(pcrd2); 													*/
+//==============================================
 		
-		int re;
-
-		for(re=5; re>0; re--) {
-		System.out.printf("총 기회가 %s 번 남았습니다. 1 ~ 10까지 번호 중 한의 번호를 입력해주세요.\n", re);
-		int user_input = sc.nextInt();
-			if( pcrd == user_input) {
-				System.out.println("정답");
+		int w = 5;
+		
+		do {
+			System.out.printf("잔여 기회 : %d \n숫자 입력 : ", w);
+			int user = sc.nextInt();
+			ex2.ex22(pcrd, user);
+			String out = ex2.result();
+			System.out.println(out);
+			int check = out.indexOf("정답"); //inexOf : 단어 검색  (-1 : 없음.) (0 : 있음.)
+			if(check == 0) { // 정답일 경우 종료
 				break;
 			}
-			else if( pcrd < user_input) {
-				System.out.printf("DOWN \n", re-1);
-			}
-			else if( pcrd  > user_input) {
-				System.out.printf("UP \n", re-1);
-			}
-			if (re == 1) {
-				System.out.println("\n실패 정답은 " + pcrd);
-				break;
-			}
-		}
-		sc.close();
-		System.exit(0);
-		
+			w--;
+		}while(w > 0);
 	}
 
 }
