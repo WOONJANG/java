@@ -1,56 +1,64 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Class4 {
 
 	public static void main(String[] args) {
-		Member mb = new Member();	
-		//객체 : Member
-		//mb : 인스턴스
-		//new Member : 메모리에 인스턴스 명을 생성하여 사용할 수 있도록 함.
+		/*
+		 * 배열 데이터 : {"홍길동", "이순신", "유관순"};
+		 * 세개의 데이터가 있습니다.
+		 * 메인 class에서 문자를 하나 전송 합니다.
+		 * 단, 문자가 null로 보낼 수 있으며, 배열 데이터와 관계 없는 "강감찬"이라고 보낼 수도 있습니다.
+		 * 외부 class명 : data_list 이며
+		 * 추상 class명 : v_construct 입니다.
+		 * 외부 class안에 내부 class 명 : check
+		 * 입니다.
+		 * 
+		 * [결과형태]
+		 * main class에서 "강감찬"을 적용할 경우
+		 * 내부 class에서 "해당 사용자는 가입자가 아닙니다." 라고 출력
+		 * main class에서 "홍길동", "이순신", "유관순"을 적용할 경우
+		 * 내부 class에서 "해당 사용자가 있습니다." 라고 출력
+		 * 단, ArrayList로 배열을 load 하십시오. 
+		*/
 		
-		mb.user_age = 33;
-		System.out.println(mb.user_age);
-		int total = 6 * mb.user_age;
-		System.out.println(total);
 		
-		final int agree = mb.user_agree;	//Member 인스턴스를 load. -> agree라는 필드 상수값으로 전달 
-		mb.user_agree =80;	//메모리에 등록된 필드명에 해당 되는 값을 변경함.
-		System.out.println(mb.user_agree);
-		System.out.println(agree);	//final
-		
-		/*	일반 클래스 메소드 부분	
-		    일반 클래스 메소드 사용시 별도의 객체 및 인스턴스를 만들 필요가 없다.
-		    Why? static 자체가 메모리 인스턴스를 사용한다는 뜻.	*/
-		//coupon.events();	//클래스에 대한 메소드를 바로 호출 가능. 단, events라는 메소드에 변수 필드 및 번수 필드값을 Class에 선언하게 되면 객체 +인스턴스를 생성하애만 load가 된다.
-		Member.member_events();
-		mb.member_events();
-	}
-
-}
-
-class Member { //클래스 
-	String user_name;	//변수 필드명을 생성
-	int user_age;
-	int user_level;
-	int user_agree = 6;	//변수 필드명(user_name, age, level, agree)에 필드값(=1)을 선언.
-	public static void member_events() {
-		coupon.events();
-		
-	}
-	
-	
-}
-
-class coupon {
-	
-	public static void events() {
-		int cp = 30;
-		System.out.println(cp);
+		data_list v = new data_list();
+		v.datalist_method(null);
+		data_list.cal vc = v.new cal();
+		vc.check();
 	}
 }
 
-
-
-
-
-/* '하나'의 Project 중 서로 다른 package라도 한 번 사용한 Class명은 다른 곳에서 사용 불가.  Class/src/Class4 + Loop/src/Class4는 가능
- */
+abstract class v_construct{
+	public String u_name;
+	abstract void datalist_method(String user);
+	String arr[] = {"홍길동", "이순신", "유관순"};	// 배열 데이터
+	ArrayList<String> ar = new ArrayList<>(Arrays.asList(arr)); // ArrayList로 Array data를 ar 이름으로 load
+}	
+class data_list extends v_construct{
+		@Override
+		public void datalist_method(String user) {
+			this.u_name = user;  // user = v.datalist_method(null);
+		}
+	class cal{
+		String msg="";
+		public void check() {
+			for(int f = 0; f < ar.size(); f++) {
+			if(null == u_name) {
+				this.msg ="사용자 이름을 입력하세요.";	
+			}
+			else {
+				if(ar.get(f) != u_name) {	// ar 받아온 data의 f반복 이 u_name 와 다르면 
+					this.msg = "해당 사용자는 가입자가 아닙니다.";
+				}
+				else {
+					this.msg = "해당 사용자가 있습니다.";
+					break;
+				}
+			}
+			}
+			System.out.println(this.msg);
+		}
+	}
+}

@@ -1,43 +1,33 @@
-
+/* 부모class 및 자식(내부)class 연동*/
 public class Class1 {
 
-	public static void main(String[] args) { //일반 main 함수
-		
-		Adata a = new Adata(); //Adata Class 먼저 로드 
-		Bdata b = new Bdata(); //Bdata Class 먼저 로드
-		
-		System.out.println(a.aa); // Adata Class 안에 aa 라는 문자 자료형 객체값을 가져옴.
-		System.out.println(b.aa); // Bdata Class 안에 aa 라는 문자 자료형 객체값을 가져옴.
-		Cdata c = new Cdata();
-		/* Cdata 안에 일반 변수 자료형을 선언함 => 현재 기본 함수에서 값만 입력한 뒤 객체값을 받아 산술식으로 계산함. (인스턴스 변수) */
-		c.aa = 10;
-		c.bb = 30;
-		c.cc = c.aa + c.bb;
-		System.out.println(c.cc);
-		
-		
-		
-		
-		
-		
-		
+	public static void main(String[] args) {
+		/* 부모가 인스턴스에 적용이 되지 않으면 자식 class는 절대 적용하지 못함 */
+		parents p = new parents();
+		p.p_box();
+		parents.child pc = p.new child();	// 부모 class.자식 class 이름 = 부모class명.new 자식class (인스턴스에 적용)
+		pc.c_box();
 	}
-
-}
-//aa는 각각 다른 Class에 있기 때문에 중복되지 않는다.
-class Adata{
-	String aa = "홍길동";
 }
 
-class Bdata{
-	String aa = "이순신";
-}
-
-class Cdata{
-// 해당 Cdata에 있는 클래스에는 자료형에 대한 변수만 선언합니다
-// 단, 계산수식은 함수가 없는 상황이므로 수식또는 sysout을 사용하지 못함.
-	int aa;
-	int bb;
-	int cc;
-//	int cc = aa + bb;
+class parents {	// 부모 class
+	String a = "홍길동";	// 부모 필드에 있는 전역변수
+	String b;
+	class child {	// 자식 class
+		int a = 20;
+		
+		public void c_box () {	// 자식 method
+			double c = 10.5;	// 자식 method 전용 지역변수
+			System.out.println(c);	// 10.5
+			System.out.println(this.a);	// 20 // 자식 class 전용 전역변수
+			System.out.println(parents.this.a);	// 홍길동 // 자식class에 변수명a가 없으면 그냥 a 찍어도 부모클래스 a(홍길동) 출력
+			System.out.println(parents.this.b);	// 이순신	p_box this.b = a 선언
+		}
+	}
+	public void p_box() {	// 부모 method
+		String a = "이순신";	// p_box에 있는 지역변수 선언
+		this.b = a;
+		System.out.println(this.a);	// 홍길동
+		System.out.println(a);	// 이순신
+	}
 }
