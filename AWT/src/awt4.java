@@ -17,7 +17,7 @@ class decorate extends awt4_class {
 	public void cal_btn_push(int c) {
 		System.out.println(c);
 		for(int f=1; f<=9; f++) {
-			this.result +=c + " * " + f + " = " + (c*f) + "\n";
+			this.result += c + " * " + f + " = " + (c*f) + "\n";
 		}
 	}
 
