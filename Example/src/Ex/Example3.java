@@ -41,11 +41,20 @@ class upoint extends mpoint{
 	public void setter1() {
 		db1();
 		ArrayList<String[]> pl = new ArrayList<String[]>(Arrays.asList(this.arr));
-		ArrayList<Integer> pl2 = new ArrayList<Integer>();
+		ArrayList<String> pl2 = new ArrayList<String>();
 		for(int f = 0; f < pl.size(); f++) {
 //			System.out.println(pl.get(f)[6]);
 			Integer zz = Integer.parseInt(pl.get(f)[6]);
-			pl2.add(zz);
+		//	pl2.add(zz);
+			
+			for(int i = 0; i<pl.size();i++) {
+				for(int j = 0; j<arr.length;j++) {
+					if(String.valueOf(pl.get(i)).equals(arr[j][6])) {
+						pl2.add(arr[j][0]);
+					}
+					System.out.println(pl2);
+				}
+			}
 
 
 		}
@@ -54,9 +63,7 @@ class upoint extends mpoint{
 		
 		for(int w=0; w < pl.size(); w++) {
 			for(int ww=0; ww<pl2.size();ww++) {
-				if(pl == pl2) {
-					
-				}
+
 			}
 		}
 	}
