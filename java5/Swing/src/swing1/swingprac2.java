@@ -18,8 +18,9 @@ import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.JCheckBox;
 
-public class swingprac1 extends JFrame {
+public class swingprac2 extends JFrame {
 
 	private JPanel contentPane;
 
@@ -30,7 +31,7 @@ public class swingprac1 extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					swingprac1 frame = new swingprac1();
+					swingprac2 frame = new swingprac2();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +43,7 @@ public class swingprac1 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public swingprac1() {
+	public swingprac2() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -71,7 +72,7 @@ public class swingprac1 extends JFrame {
 		
 		
 		ButtonGroup gp1 = new ButtonGroup();
-		ButtonGroup gp2 = new ButtonGroup();
+//		ButtonGroup gp2 = new ButtonGroup();
 		
 		JPanel panel1 = new JPanel();
 		panel1.setBorder(new TitledBorder(new LineBorder(Color.black,1),"회원 & 비회원"));
@@ -82,12 +83,14 @@ public class swingprac1 extends JFrame {
 		
 		JRadioButton rd1 = new JRadioButton("회원");
 		rd1.setFont(new Font("돋움체", Font.PLAIN, 12));
-		rd1.setBounds(31, 28, 49, 23);		panel1.add(rd1);
+		rd1.setBounds(31, 28, 49, 23);
+		panel1.add(rd1);
 		gp1.add(rd1);
 		
 		JRadioButton rd2 = new JRadioButton("비회원");
 		rd2.setFont(new Font("돋움체", Font.PLAIN, 12));
-		rd2.setBounds(101, 28, 61, 23);		panel1.add(rd2);
+		rd2.setBounds(101, 28, 61, 23);
+		panel1.add(rd2);
 		gp1.add(rd2);
 		
 		JPanel panel2 = new JPanel();
@@ -97,25 +100,25 @@ public class swingprac1 extends JFrame {
 		contentPane.add(panel2);
 		panel2.setLayout(null);
 		
-		JRadioButton rd3 = new JRadioButton("한식");
-		rd3.setFont(new Font("돋움체", Font.PLAIN, 12));
-		rd3.setBounds(35, 35, 50, 20);		panel2.add(rd3);
-		gp2.add(rd3);
+		JCheckBox ccb1 = new JCheckBox("한식");
+		ccb1.setFont(new Font("돋움체", Font.PLAIN, 12));
+		ccb1.setBounds(35, 34, 50, 23);
+		panel2.add(ccb1);
 		
-		JRadioButton rd4 = new JRadioButton("양식");
-		rd4.setFont(new Font("돋움체", Font.PLAIN, 12));
-		rd4.setBounds(135, 35, 50, 20);		panel2.add(rd4);
-		gp2.add(rd4);
+		JCheckBox ccb2 = new JCheckBox("양식");
+		ccb2.setFont(new Font("돋움체", Font.PLAIN, 12));
+		ccb2.setBounds(135, 34, 50, 23);
+		panel2.add(ccb2);
 		
-		JRadioButton rd5 = new JRadioButton("일식");
-		rd5.setFont(new Font("돋움체", Font.PLAIN, 12));
-		rd5.setBounds(235, 35, 50, 20);		panel2.add(rd5);
-		gp2.add(rd5);
+		JCheckBox ccb3 = new JCheckBox("일식");
+		ccb3.setFont(new Font("돋움체", Font.PLAIN, 12));
+		ccb3.setBounds(235, 34, 50, 23);
+		panel2.add(ccb3);
 		
-		JRadioButton rd6 = new JRadioButton("중식");
-		rd6.setFont(new Font("돋움체", Font.PLAIN, 12));
-		rd6.setBounds(335, 35, 50, 20);		panel2.add(rd6);
-		gp2.add(rd6);
+		JCheckBox ccb4 = new JCheckBox("중식");
+		ccb4.setFont(new Font("돋움체", Font.PLAIN, 12));
+		ccb4.setBounds(335, 34, 50, 23);
+		panel2.add(ccb4);
 		
 		JLabel lblNewLabel = new JLabel("음식 예약 시스템");
 		lblNewLabel.setFont(new Font("돋움체", Font.BOLD, 12));
@@ -142,25 +145,31 @@ public class swingprac1 extends JFrame {
 // =================================================
 				String order = "";
 				String msg2="";
-				if(rd3.isSelected() == true) { 
-					order = rd3.getName();
+				String ordermsg[]  = {"한식", "양식", "일식", "중식"};
+				for (int f =0; f<ordermsg.length; f++) {
+					
+				
+				if(ccb1.isSelected() == true) { 
+					order = ccb1.getName();
 //					System.out.println("한식");
-					msg2="한식";
+//					msg2="한식";
 				}
-				else if (rd4.isSelected() == true) { 
-					order = rd4.getName();
+				else if (ccb2.isSelected() == true) { 
+					order = ccb2.getName();
 //					System.out.println("양식");
-					msg2="양식";
+//					msg2="양식";
 				}	
-				else if (rd5.isSelected() == true) { 
-					order = rd5.getName();
+				else if (ccb3.isSelected() == true) { 
+					order = ccb3.getName();
 //					System.out.println("일식");
-					msg2="일식";
+//					msg2="일식";
 				}
-				else if (rd6.isSelected() == true) { 
-					order = rd6.getName();
+				else if (ccb4.isSelected() == true) { 
+					order = ccb4.getName();
 //					System.out.println("중식");
-					msg2="중식";
+//					msg2="중식";
+					msg2 = ordermsg[f];
+				}
 				}
 				SimpleDateFormat format1 = new SimpleDateFormat("yy.MM.dd HH:mm");
 				Date time = new Date();
