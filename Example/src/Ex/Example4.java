@@ -2,6 +2,8 @@ package Ex;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Example4 {
 
@@ -36,18 +38,29 @@ class point_plus extends point_cal{
 	int ea = 0;
 	int total = 0;
 	
-	@Override
-	public void setter2() {
-		db2();
-		ArrayList<String[]> point_list = new ArrayList<String[]>(Arrays.asList(this.arr));
-		this.ea = point_list.size();
-		for(int f = 0; f < ea; f++) {
-//		System.out.println(point_list.get(f)[6]);
-		int change = Integer.parseInt(point_list.get(f)[6]);
-		this.total += change;
-		}
+	   @Override
+	   public void setter2() {
+	      db2();
+	      ArrayList<String[]> ar1 = new ArrayList<String[]>(Arrays.asList(this.arr));  //arraylist로 배열
+	      ArrayList<Integer> em = new ArrayList<>(); // 빈배열
+	      
+	      for(int f = 0; f<ar1.size();f++) {
+	         Integer change = Integer.parseInt(ar1.get(f)[6]);
+	         em.add(Integer.parseInt(ar1.get(f)[6]));
+	      }
+	      Collections.sort(em); // 포인트 올림차순
+//	      System.out.println(em);
+	      for (int ff = 0; ff<=arr.length; ff++) {
+	         for(int fff=0; fff<=arr[0].length; fff++) {
+	            if(ar1.get(ff)[6].equals(Integer.toString(Integer.parseInt(ar1.get(fff)[6])))) {
+	                  System.out.println(ar1);
+	            }
+	         }
+	      }
+	   }
 
-	}
+	   
+
 	
 	@Override
 	public int getter2() {
