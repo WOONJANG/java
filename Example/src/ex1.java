@@ -6,6 +6,7 @@ public class ex1 {
 		System.out.println("test"); 
 		System.out.println(a);
 		System.out.println("test3");
+		System.out.println("123asd");
 	}
 
 }
