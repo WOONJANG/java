@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>javascript 2일차 외부 api js 연결 + 배열(응용편)</title>
+<script src="http://192.168.100.209:8080/html2/js8.js?v=2"></script>
+<script src="http://192.168.100.210:8080/html2/js8.js?v=3"></script>
+<script>
+var mid = "park";
+ex(mid);
+function gettera(idx){
+var data_b = [2500,3400,1000,6200];
+	var w = 0;
+	var point;
+	while(w<data_b.length){
+		if(idx==w){
+			point = data_b[w];
+		}
+		w++;
+	}
+	var level = vip(idx);
+	return [point,level];
+}
+
+function aaa(){
+	var result = bbb();
+	//console.log(result[0]);
+}
+function bbb(){
+	var a = 1;
+	var b = 2;
+	return [a,b];	//return값 1개 이상 전달할 경우 사용
+}
+aaa();
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=deive-width, initial-scale=1.0">
+<meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+<title>간편회원가입</title>
+<script src="http://192.168.100.213:8080/js/js16.js?v=5"></script>
+<script src="http://192.168.100.211:8080/html1/js16.js?v=5"></script>
+<script>
+function gopage(){
+	var spart = document.getElementById("part").value;
+	var search = document.getElementById("search").value;
+	if(spart=="" || search==""){
+		alert("검색할 파트와 검색할 단어를 입력해 주세요");
+	}
+	else{
+		if(spart=="userid"){
+			personid(search);
+		}
+		else{
+			findByname(search);
+		}
+	}
+	
+}
+
+</script>
+</head>
+<body>
+<select name="part" id="part">
+<option value="">[검색할 파트를 지정하세요]</option>
+<option value="userid">아이디</option>
+<option value="usernm">이름</option>
+</select>
+<input type="text" id="search" name="search">
+<input type="button" value="검색" onclick="gopage()">
+</body>
+</html>
