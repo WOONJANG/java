@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+
+<title>javascript 4일차 2 submit + return</title>
+<script>
+
+	function ID() { // 아이디 중복찾기 함수
+		if(frm.mid.value == ""){
+			alert ("아 이 디 를 입 력 하 세 요.")
+			frm.id.focus();
+		}
+		else{
+			location.href='http://google.com';
+		}
+	}
+	
+	function SUBMIT() {	// 간편회원 등록 함수
+		if(frm.mid.value == ""){
+			alert ("아 이 디 를 입 력 하 세 요.");
+			frm.mid.focus();
+			return false;
+		}
+		else if (frm.mpw.value == ""){
+			alert ("비 밀 번 호 를 입 력 하 세 요.");
+			frm.mpw.focus();
+			return false;
+		}
+		else if (frm.mtel.value == ""){
+			alert ("전 화 번 호 를 입 력 하 세 요.");
+			frm.mtel.focus();
+			return false;
+		}
+		else{
+			return true;
+		}
+	}
+	
+	function CANCLE() {
+			// confirm : 확인, 취소 두가지의 답변을 구분할 때 사용
+		if(confirm("가 입 을 취 소 하 시 겠 습 니 까 ?")){	//확인
+		location.href='http://daum.net'}
+		else{	// 취소
+			location.href ='http://jobkorea.co.kr'
+		}
+	}
+
+
+</script>
+</head>
+<body>
+	<form name="frm" id="frm" onsubmit="return SUBMIT();" method="post" action="http://naver.com">
+		아이디 : <input type="text" name="mid"><input type="button" value="중복확인" onclick="ID();"><br>
+		패스워드 : <input type="password" name="mpw"><br>
+		전화번호 : <input type="text" name="mtel" maxlength="11"><br>
+		<input type="submit" value="간편회원가입">
+		<input type="reset" value="가입취소" onclick="CANCLE();">
+	</form>
+	
+</body>
+</html>

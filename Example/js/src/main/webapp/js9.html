@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+		<title>javascript 5일차 2 </title>
+		<script>
+			
+			var names = ["sms","email","event","push"];
+			
+			function allck() {
+				var boolean = true;
+				var code;
+				
+				if(frm.all.checked == true){
+					code=0;
+				}
+				else{
+					code=1;					
+				}
+				var w = 0;
+				var test;
+				while(w < names.length){
+				test = document.getElementsByName(names[w]);
+				test[code].checked = boolean;
+					w++;
+				}
+			}
+
+		</script>
+		<style>
+		
+			ul,li {
+				list-style: none;
+			}
+		</style>
+	</head>	
+	<body>
+	<legend>[해당 광고 서비스를 선택하세요]</legend>
+	
+	<form name="frm" id="frm">
+	
+		<ul>
+			<li>
+				SMS 수신여부
+				<input type="radio" id="agree" name="sms" value="true">동의함
+				<input type="radio" id="n_agree" name="sms" value="false" checked>동의안함<br>
+			</li>
+			<li>
+				이메일 수신여부
+				<input type="radio" id="agree" name="email" value="true">동의함
+				<input type="radio" id="n_agree" name="email" value="false" checked>동의안함<br>
+			</li>
+			<li>
+				이벤트 알람 수신여부
+				<input type="radio" id="agree" name="event" value="true">동의함
+				<input type="radio" id="n_agree" name="event" value="false" checked>동의안함<br>
+			</li>
+			<li>
+				푸시 알람 수신여부
+				<input type="radio" id="agree" name="push" value="true">동의함
+				<input type="radio" id="n_agree" name="push" value="false" checked>동의안함<br>
+			</li>
+			<li>
+				<label>전체 서비스에 동의함
+				<input type="checkbox" name="all" id="all" onclick="allck();"></label>
+			</li>
+		</ul>
+	</form>	
+	</body>
+	<script> 
+			
+// 	function allck() {
+		
+// 		var allck = document.getElementById("all");
+		
+// 		var userck;
+// 		var userck2;
+// 		if(allck.checked == true){
+// 			userck = true;
+// 		}
+// 		else{
+// 			userck2 = true;
+// 		}
+		
+// 		var w = 0;
+// 		while(w<4){
+// 			frm.agree[w].checked = userck;
+// 			frm.n_agree[w].checked = userck2;
+// 			w++;
+// 		}
+// 	}
+	
+	</script>
+</html>

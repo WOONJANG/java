@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+		<title>javascript 5일차 3 장바구니 system A(장바구니선택파트) </title>
+<!-- 		<script src="http://192.168.100.207:8080/js/js10C.html?v=20220719003"></script> -->
+<!-- 		<script src="http://192.168.100.208:8080/js/js10A.html?v=20220719003"></script> -->
+		<script>
+						
+			function ch() {
+				var count = 0;
+				var k = 0;
+				while(k < ea){
+					if(f.fr[k].checked == true){
+						count++;
+					}
+					k++;
+				}
+				if(count < 2){
+					alert("구매하실 과일은 2종류 이상 선택해야 합니다.")
+				}
+				else{
+					f.submit();
+				}
+			}
+		
+
+		</script>
+		<style>
+			
+			
+		</style>
+	</head>	
+	<body>
+		
+		<form name="f" id="f" method="get" action="./js10bbb.html">
+			<p>A[파트]</p>
+			<span>장바구니 시스템[사용자가 구매할 과일을 선택하세요 (단, 2가지 이상)]</span><br>
+			<span id="basket">
+			
+			</span><br>
+			<input type="button" value="신청완료" onclick="ch();">
+		</form>
+
+	</body>
+	<script> 
+			
+		var b = ["사과","딸기","바나나","키위","파인애플","수박","참외"];
+		var dw = 0;
+		var ea = b.length;
+		var html1,html2,html3,text;
+		do{
+			
+			html1 = document.getElementById("basket");
+			html2 = document.createElement("label");
+			html3 = document.createElement("input")
+			html3.type="checkbox";
+			html3.name="fr";
+			html3.value=dw;
+			text = document.createTextNode(b[dw]);
+			
+			html2.append(html3);
+			html2.append(text);
+			html1.append(html2);
+						
+			dw++;
+		}while(dw<ea);
+	
+	</script>
+</html>

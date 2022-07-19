@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+		<title>javascript 4일차 4 HTML code 생성</title>
+		<script>
+			var a = 0;
+			// innerHTML : html tag 및 문자를 생성할 때 사용
+			// innerText : 문자만 생성
+			
+			// inner는 += 사용하지 않을 경우 기존에 있는 tag는 모두 삭제 시켜버린다.
+			function abc() {
+				
+				if(a < 3){
+					var b = document.getElementById("box");
+					b.innerHTML += "<input type='text' id='mid' name='mid'>";
+//  				b.innerHTML = "홍길동";
+// 					b.innerText = "홍길동";
+// 					b.innerText = "<input type='text' id='mid' name='mid'>"
+					a++;
+				}
+				else{ 
+					alert("최대 3개 까지만 가능합니다.");
+				}
+			}
+			
+			/* Node 형태로 생성*/
+			function add() {
+				var K = document.getElementById("box2");
+				// createElement : 해당 태그를 생성한다는 함수
+				var OBJECT = document.createElement("span");
+				// createTextNode : 문자만 생성할 때 사용
+				var TEXT = document.createTextNode("연습");
+				
+				/* append :	Node를 추가한다는 함수 기존 태그가 있을 경우 새로운 태그는 기존태그 아래에 생성	*/
+				/* IE에서 쓰면 안됨 append 속성이나 메소드 지원을 하지 않음 */
+				OBJECT.append(TEXT);
+				K.append(OBJECT);
+				
+/* 				
+ 				appendChild : IE에서 사용하는 속성값
+ 				OBJECT.appendChild(TEXT);
+ 				k.appendChild(OBJECT);
+*/
+			}
+			
+			
+			function add2() {
+				var I = document.getElementById("box3");
+				var Q = document.createElement("label");
+				var TEXT = document.createTextNode("텍스트노드");
+				Q.append(TEXT);
+				I.insertBefore(Q,I.firstChild);
+				// insertBefore : 원하는 위치를 조정하여 생성하는 함수
+				// firstChild : 태그 가장 위에서 생성
+				// lastChild : 태그 가장 아래에서 생성
+			}
+			
+		</script>
+	</head>
+	<body>
+
+		<div id="box">
+			<input type="button" value="생성" onclick="abc()">
+		</div>		
+		<div id="box2">
+			<input type="button" value="생성2" onclick="add()">
+		</div>
+		<div id="box3">
+			<input type="button" value="생성3" onclick="add2()">
+		</div>
+
+
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+		<title>javascript 4일차 7_1 </title>
+		
+		<script>
+		
+
+		</script>
+		<style>
+
+		</style>
+	</head>
+	<body>
+		
+		<div>
+			아이디 : <span id="user_id"></span><br>
+			국적 : <span id="user_area"></span>
+		</div>
+
+
+	</body>
+	<script> 
+		
+		var url2= window.location.search;
+		var sp1 = url2.split("&eee=");
+		var area = sp1[1];
+		var sp2 = sp1[0].split("?ooo=");
+		var mid = sp2[1];
+		console.log(mid, area);
+	
+		document.getElementById("user_id").innerText = mid ;
+		document.getElementById("user_area").innerText = area ;
+	
+	
+	
+	
+	</script>
+</html>

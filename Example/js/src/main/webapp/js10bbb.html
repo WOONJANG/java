@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+		<title>javascript 5일차 3 장바구니 system C(결제파트) </title>
+<!-- 		<script src="http://192.168.100.207:8080/js/js10C.html?v=20220719003"></script> -->
+<!-- 		<script src="http://192.168.100.208:8080/js/js10A.html?v=20220719003"></script> -->
+		<script>
+							
+
+		</script>
+		<style>
+			
+			
+		</style>
+	</head>	
+	<body>
+		
+		<p>선택한 상품은 <span id="product_nm"></span> </p>
+		<p>결제할 금액은 <span id="product_total"></span></p>
+		
+		<input type="button" value="결제하기" onclick="post_pay();">
+
+	</body>
+	<script> 
+		
+		var data = [
+			["사과","딸기","바나나","키위","파인애플","수박","참외"],
+			[1800,5500,4000,6000,12000,23000,8000]
+			
+		];
+		
+		var uri = window.location.search;
+		var array = uri.split("&fr=");
+		var ea = uri.split("&fr=").length;
+		var w = 0;
+		var product_nm = "";
+		var money=0;
+		// 사용자가 선택한 상품 전체 리스트 출력 함수
+		var product_list;
+		while(w<ea){
+			if(w==0){
+				var product1 = array[0].split("?fr=");
+				product_list = data[0][product1[1]]+"("+data[1][product1[1]]+") ";
+				money = data[1][product1[1]];
+			}
+			else{
+				product_list += data[0][array[w]]+"("+data[1][array[w]]+") ";
+				money += data[1][array[w]];
+			}
+			w++;
+		}
+		document.getElementById("product_nm").append(product_list);
+		document.getElementById("product_total").append(money + "원");
+		console.log(product_list);
+		
+		function post_pay() {
+			location.href='./js10ccc.html?total=' + money;
+		}
+
+	</script>
+</html>

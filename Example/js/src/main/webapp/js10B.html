@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+		<title>javascript 5일차 3 장바구니 system B(총결제금액확인파트) </title>
+		<script src="http://192.168.100.207:8080/js/js10C.html?v=20220719003"></script>
+		<script src="http://192.168.100.208:8080/js/js10A.html?v=20220719003"></script>
+		<script>
+							
+
+			// 결제진행 버튼 함수
+			function paying() {
+				
+				for(var f = 0; f <LIST.length; f++){
+					
+				}
+							
+				frm.method = "get";
+				frm.action = "http://192.168.100.207:8080/js/js10C.html"
+				frm.submit();
+				
+			}
+			// 이전페이지 버튼 함수
+			function undo() {
+				
+				frm.method = "get";
+				frm.action = "http://192.168.100.208:8080/js/js10A.html"
+				frm.submit();
+			}
+		</script>
+		<style>
+			
+			.pay_btn{
+				width : 100px;
+				height : 30px;
+				background-color: black;
+				color : white;
+				font-size : 14px;
+				font-weight: bold;
+				border : none;
+			}
+			.pay_btn:hover{
+				background-color: orange;
+			}
+			.undo_btn{
+				width : 100px;
+				height : 30px;
+				background-color: gary;
+				color : black;
+				font-size : 14px;
+				font-weight: bold;
+				border : none;
+			}
+			.undo_btn:hover{
+				background-color: orange;
+			}
+		</style>
+	</head>	
+	<body>
+		<div = >
+			<form id="frm" name="frm">
+				선택한 상품 : <span id="choice_goods"></span><br><br>
+				결제하실 금액 : <span id="choice_pay" name="ddd"> 원</span><br><br><br>
+				<input type="button" class="undo_btn"value="이전페이지" onclick="undo();">
+				<input type="button" class="pay_btn"value="결제진행" onclick="paying();">
+			</form>
+		</div>
+
+	</body>
+	<script> 
+		var LIST = [
+			{"goods":"사과","price":"1800"},
+			{"goods":"딸기","price":"5500"},
+			{"goods":"바나나","price":"4000"},
+			{"goods":"키위","price":"6000"},
+			{"goods":"파인애플","price":"12000"},
+			{"goods":"수박","price":"23000"},
+			{"goods":"참외","price":"8000"}
+		];
+// 		for(var f = 0; f < LIST.length; f++){
+// 		console.log(LIST[f]["price"])
+			
+			var url = window.location.search;
+			console.log(url.split("&ck="));
+			var sp1 = url.split("&ck=");
+			
+// 		document.getElementById("choice_goods").innerText = LIST[f]["goods"];
+// 		document.getElementById("choice_pay").innerText = LIST[f]["price"];
+		
+// 		}
+		
+		
+	
+	
+// 		var basket_pirce = 0;
+// 		for(var ff = 0; ff < LIST.length; ff++){
+// 			if(good == ff){
+// 				console.log(f);
+// 			}
+// 			basket_price += total;
+		
+// 		}
+	
+	</script>
+</html>

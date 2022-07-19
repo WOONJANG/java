@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="widht=device-width,height=device-height,initial-scale=1">
+<title> javascript 4일차 1 submit + return</title>
+<script>
+
+	var f;
+	function abc() {
+		if(frm.search.value==""){ //submit 속성에만 return을 무조건 사용
+			alert("검 색 할 단 어 를 입 력 하 세 요.")
+			return false;
+		}
+		else{
+			return;
+			
+
+			frm.submit();
+		}
+	}
+	
+
+</script>
+</head>
+
+<body>
+<!-- onsubmit 무조건 form tag에만 사용 -->
+	<form name="frm" id="frm" method="post" action="https://nate.com" onsubmit="return abc();">
+		<input type="text" id="search" name="search">
+		<input type="submit" value="검색">
+	</form>
+</body>
+</html>
