@@ -1,34 +1,77 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
-<title>Javascript 3일차 HTML + Javascript 2(js13.html함께)</title>
-<script>
-	function abc(){
-		//var a = document.getElementById("mid");
-		if(frm.mid.value==""){
-			alert("중복 확인 하실 아이디를 입력하세요");
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+		<title>javascript 6일차 1 20220719 숙제 풀이 node </title>
+		<script>
+			
+		
+	    var url = [
+	        {"EVENT":"푸드페어","LINK":"https://www.coupang.com/np/campaigns/16160?from=home_C1&traid=home_C1&trcid=11169775"},
+	        {"EVENT":"메가뷰티쇼","LINK":"https://pages.coupang.com/p/62484?from=home_C1&traid=home_C1&trcid=6256722548"},
+	        {"EVENT":"종근당건강","LINK":"https://pages.coupang.com/f/s7260?from=home_C1&traid=home_C1&trcid=11168322"},
+	        {"EVENT":"필립스","LINK":"https://pages.coupang.com/f/s976?from=home_C1&traid=home_C1&trcid=11168328"},
+	        {"EVENT":"글로벌 쇼핑데이","LINK":"https://pages.coupang.com/p/63611?from=home_C1&traid=home_C1&trcid=11169777"},
+	        {"EVENT":"특가 대방출","LINK":"https://www.coupang.com/np/campaigns/82?from=home_C1&traid=home_C1&trcid=5667822457"}
+	    ];
+			
+	    	function abc(no) {
+// 				console.log(mu.children[0]);
+				console.log(url[no]);
+			}
+
+
+		</script>
+		<style>
+			
+			
+		</style>
+	</head>	
+	<body>
+		<ul id="menus">
+			<li menu="0">메뉴1</li>
+			<li menu="1">메뉴2</li>
+			<li menu="2">메뉴3</li>
+			<li menu="3">메뉴4</li>
+			<li menu="4">메뉴5</li>
+			<li menu="5">메뉴6</li>
+		</ul>
+		
+		
+		<ul id="menus2" onclick="abc();">
+			<li onclick="abc(0);">메뉴1</li>
+			<li onclick="abc(1);">메뉴2</li>
+			<li onclick="abc(2);">메뉴3</li>
+			<li onclick="abc(3);">메뉴4</li>
+			<li onclick="abc(4);">메뉴5</li>
+			<li onclick="abc(5);">메뉴6</li>
+		</ul>
+
+	
+	<script>
+
+	var m = document.getElementById("menus");
+//		console.log(m.children[0]);
+
+	for(var f = 0; f < url.length; f++){
+		// 반복문 function : 불가
+		// 핸들링 function 형태 사용시 반복문 안에 사용할 수 있음.
+		// 단, 그 외에 반복문 변수로 배열, 번호등 적용하지는 못함
+		m.children[f].onclick = function name(aa) {
+			var node = this.getAttribute("menu");
+			//jquery = attr, java = attributes, 
+			//javascript : setAttribute
+			//javascript : getAttribute
+			gopage(node);
 		}
-		else{
-			frm.submit();
-		}
+	
 	}
-</script>
-<style>
-	.idclass { width:200px; height:30px; 
-	border:1px solid blue; box-sizing: border-box;}
-	.btn { width:80px; height:30px; }
-</style>
-</head>
-<body>
-<!-- 
- get 방식은 브라우져에 파라미터값을 이용하여 전송하는 형태
- 단점 : 보안에 취약함
- -->
-<form id="frm" name="frm" method="get" action="./js13.html">
-<input type="text" id="mid" name="mid" class="idclass">
-<input type="button" value="전송" class="btn" onclick="abc();">
-</form>
-</body>
+	
+	function gopage(no) {
+		location.href = url[no]["LINK"];
+	}
+	
+	</script>
 </html>

@@ -1,39 +1,63 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=deive-width, initial-scale=1.0">
-<meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
-<title>간편회원가입</title>
-<script src="http://192.168.100.213:8080/js/js16.js?v=5"></script>
-<script src="http://192.168.100.211:8080/html1/js16.js?v=5"></script>
+<meta http-equiv="X-UA-compatible" content="ie=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>javascript 6일차 재배열(sort)+상수및 변수(중복방지)</title>
 <script>
-function gopage(){
-	var spart = document.getElementById("part").value;
-	var search = document.getElementById("search").value;
-	if(spart=="" || search==""){
-		alert("검색할 파트와 검색할 단어를 입력해 주세요");
-	}
-	else{
-		if(spart=="userid"){
-			personid(search);
-		}
-		else{
-			findByname(search);
-		}
-	}
+	var a=5;
+	var a=10; //var은 변수명을 다시 사용 할 수 있고, 값도 변경됨
+	//console.log(a);
 	
-}
-
+	let b=5; //let은 중복이름 사용금지 값은 변경됨
+	//let b=10;
+	//console.log(b);
+	
+	const c=10; //const는 중복사용 금지, 값도 변경안됨 (java의 final같은 개념)
+	//c=20;
+	//console.log(c);
+	
+	var b1=Number("20"); //문자->숫자변환
+  	var b2=String(20); //숫자->문자 변환
+  	//console.log(b2);
+  	
+  	function abc(){
+  		var n1 =document.getElementById("no1").value;
+  		var n2 =document.getElementById("no2").value;
+  		var n3= Number(n1)+Number(n2);
+  		console.log(n3.toLocaleString()); //toLocaleString() : 자리수에 맞춰서 콤마로 설정->숫자x 문자로 인식
+  	}
+  	//재배열
+  	var data =[5,4,7,2,9,1];
+  	//console.log(data.sort()); // 이상태는 오름차순만 가능
+  	data.sort(function(aa,bb){
+  		return bb-aa;
+  	});
+  	//console.log(data);
+  	
+  	
+  	var data2=["a","h","b","r","c"];
+	//console.log(data2.sort());
+	data2.sort(function(cc,dd){//data2 내림차순정렬
+		//배열이 문자일 경우 임의 음수와 양수 그리고 0을 기준으로 재 배치 하게 됩니다.
+		if(cc>dd){ //cc에 
+			return -1; //오른쪽이동
+		}else if(cc<dd){
+			return 1; //왼쪽이동
+		}else{
+			return 0; //제자리			
+		}
+	});
+	console.log(data2);
+	
+	
 </script>
 </head>
 <body>
-<select name="part" id="part">
-<option value="">[검색할 파트를 지정하세요]</option>
-<option value="userid">아이디</option>
-<option value="usernm">이름</option>
-</select>
-<input type="text" id="search" name="search">
-<input type="button" value="검색" onclick="gopage()">
+<input type="text" id="no1">
+<input type="text" id="no2">
+<input type="button" value="계산" onclick="abc();">
+
 </body>
 </html>

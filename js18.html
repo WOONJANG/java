@@ -1,31 +1,134 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=deive-width, initial-scale=1.0">
-<meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
-<title>Javascript 3일차 select</title>
-<script>
-	function abc(s){
-		/*
-		var s = document.getElementById("se");
-		console.log(s.value);
-		*/
-		console.log(s);
-	}
-</script>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+		<title> 자바스크립트 6일차 8 history.go + 다차원 배열 key</title>
+		<script>
+			
+			function abc() {
+				history.go(-1);	// history.go : 이전 페이지 또는 이동한 전 전 페이지를 설정하는 함수
+			}
+			
+			
+		
+		</script>
+		<style>
 
-</head>
-<body>
-<!-- 
-     onchange = option에 대한 선택값이 변경 되면 바로 해당 함수를 호출 합니다.
-     첫번째 의미 this(해당 태그에 대한 value) 
--->
-<select name="se" id="se" onchange="abc(this.value)">
-	<option value="">[통신사]</option>
-	<option value="SKT">에스케이텔레콤</option>
-	<option value="KT">KT</option>
-	<option value="LGT">LGT</option>	
-</select>
-</body>
+				/*	Base code	*/
+	body{
+		margin : 0;
+		padding : 0;
+		background-color: none;
+	}
+	a{
+		text-decoration-line : none;
+	}
+	span,label{
+		display : block;
+	}
+	ul,ol,li {
+		list-style: none;
+		margin : 0;
+		padding : 0;
+	}
+
+		</style>
+	</head>	
+	<body>
+
+		<a href="javascript:void abc();">뒤로가기</a>
+		
+	</body>
+	<script> 
+			
+	const data = {
+		    "members":[
+		        ["홍길동",1],
+		        ["강감찬",2],
+		        ["이순신",3],
+		        ["장운",4]
+		    ],
+		    "blood":[
+		        [1,"AB형"],
+		        [2,"O형"],
+		        [3,"B형"],
+		        [4,"A형"]
+		    ],
+		    "age":[
+		        [1,"25"],
+		        [2,"29"],
+		        [3,"34"],
+		        [4,"28"]
+		    ],
+		    "email":[
+		        [1,""], 
+		        [2,"kang@naver.com"],
+		        [3,"leess@nate.com"],
+		        [4,"11jangwoon0518@gmail.com"]
+		    ]
+		}
+// 		console.log(data["email"][배열그룹번호][배열값]);
+// 		console.log(data["email"][2][1]);	//meail key 안에 그룹배일을 확인함
+// 		console.log(Object.keys(data));	// 키값
+// 		console.log(data["members"]);	//사용자 이름
+	/*
+	
+	홍길동
+	AB형
+	25
+	""
+	
+	강감찬
+	O형
+	29
+	"kang"~
+	
+	이순신
+	B형
+	34
+	"lee"~
+		
+	*/
+	
+// 		for(var f = 0; f < data["members"].length; f++){
+// 			console.log(data["members"][f][0] + "\n" + data["blood"][f][1] + "\n" + data["age"][f][1] + "\n" + data["email"][f][1]);
+// 		}
+
+	
+	for(var f = 0; f < data["members"].length; f++){
+			Object.keys(data).forEach(function (aa,bb,cc) {
+				
+				if(aa == ["members"]){
+					console.log(data[aa][f][0])
+				}
+				else{
+					console.log(data[aa][f][1])
+				}
+			});
+	}
+
+		
+		
+		var f ;
+		for(f in data["members"]){
+			Object.keys(data).forEach(function(aa,bb,cc) {
+				if(aa == ["members"]){
+				console.log(data[aa][f][0]);
+				}
+				else{
+					console.log(data[aa][f][1]);
+				}
+			});
+		}
+		
+		
+// 		varf;
+// 		for(f in data["members"])
+		
+	
+	
+	
+	</script>
 </html>

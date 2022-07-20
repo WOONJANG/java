@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
-<title>Javascript 3일차 HTML + Javascript (popup)</title>
-<script>
-	//window.open 함수: 팝업창(새창) 오픈할 때 사용합니다.
-	//window.open("경로","타이틀","사이즈, 스크롤바, 보안사항");
-	//window.open("./js12.html","","width=500 height=300");
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+		<title>javascript 6일차 3 외부API js연동 </title>
+		<script src="http://192.168.100.207:8080/js/js13.js?v=3"></script>
+		<script src="http://192.168.100.208:8080/js/js13.js?v=3"></script>
+		<script>
+			
+			function kakao_call(){
+				if(f.mid.value == ""){
+					alert("아이디 입력 하시오.");
+				}
+				else{
+					var result = kakao.map(f.mid.value);
+					console.log(result);
+					
+					var result = kakao2.login(f.mid.value);
+					console.log(result);
+				}
+			}
+			
+		</script>
+		<style>
+			
+			
+		</style>
+	</head>	
+	<body>
+		<form name="f" id="f">
+			<input type="text" name="mid">
+			<input type="button" value="로그인" onclick="kakao_call();">
+		</form>
 
-	function popup(){
-		window.open("./js11.html","","width=300 height=200");
-	}
-	function popup2(){
-		window.open("./popup.html","","width=400 height=300");
-	}
-</script>
-</head>
-<body>
-<input type="button" value="주소찾기" onclick="popup();">
-<br><br>
-<input type="text" id="address" readonly> * 주소 입력
-<input type="button" value="팝업" onclick="popup2();">
-</body>
+	</body>
+	<script>
+
+	
+	</script>
 </html>

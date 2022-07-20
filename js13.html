@@ -1,28 +1,67 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
-<title>Javascript 3일차 HTML + Javascript 2(js13.html함께)</title>
-<script>
-//http://localhost:8080/html2/js13.html?mid=hong
-var a = window.location.search;
-//window.location : URL + URI등 해당 브라우져에 대한 경로 정보를 모두 확인
-//할때 사용되며, 부가적으로 각 파트별 적용하는 방식을 보여주게 됩니다.
-
-var data = a.split("=");
-console.log(data[1]);
-if(data[1]!="hong"){
-	alert("해당 아이디는 사용하실 수 있습니다.");
-}		
-else{
-	alert("중복된 아이디 값입니다.");
-}
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+		<title>javascript 6일차 2 복합 함수, 메소드 함수, 메소드 리턴 함수 </title>
+		<script>
+			
+			function aaa() {
+				// 복합함수는 무조건 한개는 return을 사용해야한다.
+				// 그 외에 다른 함수는 함수 호출 형태로 구성하시면 됩니다.
+				var a = "홍길동";
+				var b = "이순신"
+				var z = function () {
+					console.log(a)
+				}
+				var j = function() {
+					console.log(b)
+				}
+				j();	// 일반 함수처럼 호출하기  (J <=> Z 자리 바꿔도 됨)
+				return z;
+			}
 		
-		
-</script>
-</head>
-<body>
+			function bbb() {
+				this.a1 = function() {	// java method1
+					console.log("test1");
+				}
+				this.a2 = function() {	// java method2
+					console.log("test2");
+				}
+			}
+			var h = new bbb();
 
-</body>
+			
+			function kkk() {	// java class
+				this.load = function(v) {	// java setter
+					var j = this.success(v);
+					console.log(j);
+				}
+				this.success = function(data) {	// java getter
+					var h = data * 10;
+					return h;
+				}
+				this.data = function() {	// 배열 로드
+					var array = ["1","2","3"];
+				}
+			}
+			var zzz = new kkk();	// java class 인스턴스
+		</script>
+		<style>
+			
+			
+		</style>
+	</head>	
+	<body>
+
+		<input type="button" value="복합함수" onclick="aaa()()"> <!-- aaa()() : 복합함수 형태 -->
+		<input type="button" value="메소드함수1" onclick="h.a2()">
+		<input type="button" value="메소드함수2" onclick="h.a1()">
+		<input type="button" value="메소드함수(return)" onclick="zzz.load(5)">
+	</body>
+	<script>
+
+	
+	</script>
 </html>

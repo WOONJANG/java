@@ -1,51 +1,43 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=deive-width, initial-scale=1.0">
-<meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
-<title>Javascript 3일차 2차배열 사용법</title>
+<meta http-equiv="X-UA-compatible" content="ie=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>javascript 6일차 key배열 Object.keys</title>
 <script>
-	//체스배열[][]
-	var a = [
-		["홍길동","이순신"],
-		["hong","lee"]
-	];
-	//console.log(a[1][1]);
-	//키배열
-	var b = {
-		"person":["홍길동","이순신"],
-		"mid":["hong","lee"]
+const m = {
+	    "mid":["hong","lee","kims","yuri","kang","ygs"],
+	    "mname":["홍길동","이순신","김유신","유리왕","강감찬","유관순"],
+	    "mtel":["010-1234-5555","010-0909-0001","010-5252-4242","010-2424-0000","010-1588-1588","010-0815-0815"]
 	};
-	//console.log(b.person[1]);
-	var key = Object.keys(b);	//Object.keys : 키 이름이 있는 배열을 말함
-	//console.log(keys.length);
-	//console.log(key);
-	var keys_value = Object.values(b);	//Object.values : 키에 맞는 값 배열만 가져옴
-	//console.log(keys_value);
-	var keys_en = Object.entries(b);	//Object.entries : 배열키와 값을 동시에 가져옴
-	console.log(keys_en);
-	//console.log(keys_en[0][1]);
+	
+	var test= Object.keys(m);
+	//console.log(test);
+	
+	Object.keys(m).forEach(function(a,b,c){//Object.keys는 무조건 forEach와 같이 사용
+	//console.log(c);//출력되는값> a:키값, b:index번호, c:키값배열 
+	m[a].forEach(function(aa,bb,cc){ //해당 배열 변수에서 키 index값을 적용함
+		//console.log(aa);
+		})
+	});
+
+	//console.log(m["mid"][0]); //값 출력형태 확인
+	var s;
+	for(s in m){
+		Object.keys(m[s])/*<키값이들어가야*/.forEach(function(aa,bb,cc){ //각 배열에 키값에 맞는 데이터가 출력(6번회전)
+			console.log(m[s][aa]);
+		})
+		//console.log(s);
 		
-	console.log(b[key[0]][1]); //실무에서 무조건 사용
+	}
 	
-	//연관배열
-	var c = [
-		{"mname":"홍길동","mid":"hong"},
-		{"mname":"이순신","mid":"lee"}
-	];
-	console.log(c[1]["mname"]);
-	
-	//복합배열
-	var d = [
-		{
-			"mname":["홍길동","이순신"]
-		},
-		{
-			"mid":["hong","lee"]
-		}
-	];
-	console.log(d[1]["mid"][1]);
+/*
+Object.keys("mid").forEach(function(a,b,c){
+	console.log(b);
+});
+*/
+
 </script>
 </head>
 <body>
