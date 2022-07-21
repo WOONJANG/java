@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+      <meta name="viewport" content="width=divice-width,initial-scale=1.0">
+<!--       <link rel="stylesheet" type="text/css" href=".css"> -->
+      <title> 자바스크립트 7일차 배열 데이터 응용 </title>
+      <script src="http://192.168.100.77:8080/js/user.js?v=0001"></script>
+
+   </head>   
+   <body>
+      <div id="persons">
+      	<label id="p_name">회원명</label>
+      	<label id="p_lv">회원레벨</label>
+      	<label id="p_age">회원나이</label>
+
+
+      
+   </body>
+   <script> 
+         console.log(person);
+
+   		var DIV_TAG =  document.getElementById("persons");
+   		var P_NAME =  document.getElementById("p_name");
+   		var P_LV =  document.getElementById("p_lv");
+   		var P_AGE =  document.getElementById("p_age");
+   		var LABEL1,LABEL2,TEXT1,TEXT2,TEXT3;
+		
+   		var m,mm;
+   		person.forEach(function(aa,bb,cc){
+   			console.log(person[aa][1]); 
+//    			console.log(person[m][1]["age"]) // 이순신 나이찍힘
+    			LABEL1 = document.createElement("label");
+    			LABEL2 = document.createElement("label");
+    			LABEL3 = document.createElement("label");
+    		for(mm in person ){
+    			TEXT1 = document.createTextNode(person[bb][mm]["name"]);
+    			TEXT2 = document.createTextNode(person[bb][mm]["level"]);
+    			TEXT3 = document.createTextNode(person[bb][mm]["age"]);
+    		LABEL1.append(TEXT1);
+    		LABEL2.append(TEXT2);
+    		LABEL3.append(TEXT3);
+    		DIV_TAG.append(LABEL1,LABEL2,LABEL3)
+    		}
+   		});
+    		
+   		
+   </script>
+</html>

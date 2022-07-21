@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+      <meta name="viewport" content="width=divice-width,initial-scale=1.0">
+      <title>  </title>
+      <script>
+         
+         
+      
+      </script>
+      <style>
+      
+         body{
+            margin : 0;
+            padding : 0;
+            background-color: none;
+         }
+         
+         ul,ol,li{
+            list-style: none;
+         }
+         
+         a{
+            text-decoration: none; 
+         }
+         
+         ul{
+            margin : 0 auto;
+            padding : 0;
+            width: 300px;
+            height: 80px;
+            border : 1px solid black;
+         }
+         
+         li{
+            border : none;
+            width: 100px;
+            height: 40px;
+            float : left;
+            line-height: 40px;
+            margin : auto;
+         }
+         
+      
+      </style>
+   </head>   
+   <body>
+      <legend style="font-size : 30px; font-weight: bold; text-align: center; margin-top : 200px;"><strong>오픈마켓 바로가기</strong></legend>
+         <div style="margin-top : 40px; "id="DIV_BOX" name="DIV_BOX">
+            <ul id="UL_BOX" name="UL_BOX">
+         
+         </ul>
+      
+      </div>
+      
+   </body>
+   <script> 
+   const banners = [
+       {
+        "p_title":"지마켓",
+        "p_img":"./mini/logo_quick_01.png",
+        "p_link":"https://www.gmarket.co.kr/"
+       },
+       {
+        "p_title":"옥션",
+        "p_img":"./mini/logo_quick_02.png",
+        "p_link":"http://www.auction.co.kr/"
+       },
+       {
+        "p_title":"하프클럽",
+        "p_img":"./mini/logo_quick_03.png",
+        "p_link":"http://www.halfclub.com/"
+       },
+       {
+        "p_title":"11번가",
+        "p_img":"./mini/logo_quick_04.png",
+        "p_link":"https://www.11st.co.kr/"
+       },
+       {
+        "p_title":"위메프",
+        "p_img":"./mini/logo_quick_05.png",
+        "p_link":"https://front.wemakeprice.com/"
+       },
+       {
+        "p_title":"쿠팡",
+        "p_img":"./mini/logo_quick_06.png",
+        "p_link":"https://www.coupang.com/"
+       }
+   ];
+   
+   
+   var re;
+   var BAROGAGI = " 바로가기";
+   var DIV_TAG = document.getElementById("DIV_BOX");
+   var UL_TAG = document.getElementById("UL_BOX");
+   for( re in banners ){
+      var A_TAG = document.createElement("a");
+      var LI_TAG = document.createElement("li");
+      var IMG_TAG = document.createElement("img");
+      var TITEL_TAG = document.createElement("title");
+      var ALT_TAG = document.createElement("alt");
+      
+      IMG_TAG.src = banners[re]["p_img"];
+      IMG_TAG.title = banners[re]["p_title"] + BAROGAGI;
+      IMG_TAG.alt = banners[re]["p_title"];
+      A_TAG.href = banners[re]["p_link"];
+      
+      LI_TAG.append(IMG_TAG,TITEL_TAG,ALT_TAG);
+      A_TAG.append(LI_TAG);
+      UL_TAG.append(A_TAG);
+      
+   }
+   </script>
+</html>

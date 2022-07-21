@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+      <meta name="viewport" content="width=divice-width,initial-scale=1.0">
+<!--       <link rel="stylesheet" type="text/css" href=".css"> -->
+      <title> 자바스크립트 7일차 상품리스트출력 응용 </title>
+      <script src="http://192.168.100.77:8080/js/product.js?v=0002"></script>
+	<style>
+	
+		ul,li{
+			list-style: none;
+		}
+		li{
+			float : left;
+			
+		}
+		
+	</style>
+   </head>   
+   <body>
+		<ul id="UL_BOX">
+		
+		</ul>
+
+   </body>
+   <script> 
+//    			console.log(product);
+		var html = document.getElementById("UL_BOX");
+   		var LI_TAG, TEXT1, TEXT2, IMG_TAG;
+				LI_TAG = document.createElement("li");
+   		for(var f in product["pd"]){
+			for(var ff in product){
+// 				console.log(product[f][ff]);
+				var code;
+				
+				switch(ff){
+				case "pd":
+					code = "img";
+					IMG_TAG = document.createElement("img");
+// 					code = ff;
+					break;
+				case "img":
+					code = "pd";
+					break;
+				case "money":
+					code = "money";
+					break;
+				
+				}
+//  				console.log(product[f][code]);
+ 				
+				TEXT1 = document.createTextNode(product["pd"][ff]);
+				TEXT2 = document.createTextNode(product["money"][ff]);
+				IMG_TAG.src = product["img"][f];
+ 				
+ 				LI_TAG.append(IMG_TAG,TEXT1,TEXT2);
+// 				IMG_TAG.append(TEXT1);
+ 				html.append(LI_TAG);
+			}
+   		}
+   </script>
+</html>

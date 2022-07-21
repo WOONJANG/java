@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+      <meta name="viewport" content="width=divice-width,initial-scale=1.0">
+<!--       <link rel="stylesheet" type="text/css" href=".css"> -->
+      <title> 자바스크립트 7일차 상품리스트출력 응용 </title>
+      <script src="http://192.168.100.77:8080/js/product_list.js?v=0002"></script>
+	<style>
+	
+
+
+		
+	</style>
+   </head>   
+   <body>
+
+		<form name="frm" id="frm" method="get" action="">
+			<table border="1" cellpadding="0" cellspacing="0">
+				<thead>
+					<th><input type="checkbox" name="all" id="all" onclick="abc();"></th>
+					<th>상품명</th>
+					<th>가격</th>
+				</thead>
+				<tbody id="tbody">
+<!-- 				<tr> -->
+<!-- 					<td><input type="checkbox" name="ct1" id="ct1"></td> -->
+<!-- 					<td>셔링 숄더백</td> -->
+<!-- 					<td>123213</td> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<td><input type="checkbox" name="ct2" id="ct2"></td> -->
+<!-- 					<td>숄더백</td> -->
+<!-- 					<td>123213</td> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<td><input type="checkbox" name="ct3" id="ct3"></td> -->
+<!-- 					<td>셔링</td> -->
+<!-- 					<td>123123</td> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<td><input type="checkbox" name="ct4" id="ct4"></td> -->
+<!-- 					<td>ㅊ셔링</td> -->
+<!-- 					<td>123213</td> -->
+<!-- 				</tr> -->
+				</tbody>
+			
+		
+		
+		
+		
+			</table>
+				<input type="button" value="구매하기" onclick="payment();">
+		</form>
+
+
+   </body>
+   <script> 
+   
+   for(var f in product){ // f : 키값 pd_name
+	      for (var ff in product[f]){ // ff: 0,1,2,3 배열개수
+	         var tr=document.createElement("tr");
+	         var input;
+	         input= document.createElement("input");
+
+	         for(var fff in product[f][ff]){ // fff: 0, 1,2 배열안 원소개수
+	         //console.log(product[f][ff][fff]);
+	         var td=document.createElement("td");
+	         if(fff == 0){
+		        td.append(input);
+	     	   	input.name="ct";
+	         	input.type="checkbox";
+	     	   	input.value="pd";
+	         }
+	         else if (fff == 1){
+	        	td.append(product[f][ff][0])
+	        	 
+	         }
+	         
+	         else if (fff == 2) {
+	        	td.append(Number(product[f][ff][1]).toLocaleString());
+	        	 
+	         }
+
+
+	         console.log(product[f][ff][fff])
+	         
+	         
+	         
+	         
+	         
+	     
+	         
+	         tr.append(td);   
+	         }
+	      tbody.append(tr);   
+	      }
+	   
+	   }
+  
+    
+  
+  // 일괄 선택 함수
+   function abc() {
+		var me = document.getElementById("all");
+		var useck;
+
+		if(me.checked == true){
+			useck=true;
+		}
+		else{
+			useck=false;
+		}
+		
+		var w = 0;
+		while(w <= 4){	
+			document.getElementById("ct").checked=useck;
+			w++;
+		}
+	
+}
+   
+   </script>
+</html>

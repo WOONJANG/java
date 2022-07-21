@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+      <meta name="viewport" content="width=divice-width,initial-scale=1.0">
+<!--       <link rel="stylesheet" type="text/css" href=".css"> -->
+      <title> 자바스크립트 7일차 배열 데이터 응용 </title>
+      <script src="http://192.168.100.77:8080/js/user.js?v=0001"></script>
+
+   </head>   
+   <body>
+
+		<table border="1" cellpadding="0" cellspacing="0">
+			<thead>
+				<tr>
+					<th>회원명</th>
+					<th>회원레벨</th>
+					<th>회원나이</th>
+				</tr>
+				<tbody id="tbody">
+
+				</tbody>
+		</table>
+
+      
+   </body>
+   <script> 
+
+   
+   		var html = document.getElementById("tbody");
+//  		console.log(person["member_list"][0]["name"]); // 홍길동
+		var TD,TR; 
+		
+		
+		for(var f in person ["member_list"]){
+			TR = document.createElement("tr");
+			for(var ff in person["member_list"][f]){
+				TD = document.createElement("td");
+				
+				var code;
+				switch(ff){
+				case "name" : 
+					code = "name";
+// 					code = ff;
+					break;
+				
+				case "age" : 	
+					code = "level";
+					break;
+					
+				case "level" : 
+					code = "age";
+					break;
+				}
+				console.log(person["member_list"][f][code]);
+
+			TD.append(person["member_list"][f][code]);
+			TR.append(TD);
+			}
+			html.append(TR);
+			
+		}
+   		
+   		
+   		
+   		
+   </script>
+</html>

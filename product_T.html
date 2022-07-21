@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+      <meta name="viewport" content="width=divice-width,initial-scale=1.0">
+<!--       <link rel="stylesheet" type="text/css" href=".css"> -->
+      <title> 자바스크립트 7일차 상품리스트출력 응용(풀이)</title>
+      <script src="http://192.168.100.77:8080/js/product.js?v=0002"></script>
+	<style>
+	
+		.pdlist{
+			width: 1000px;
+			height: 600px;
+			border : 1px solid black;
+			box-sizing: border-box;
+			margin : 0 auto;
+		}
+		
+		.pdlist > ul {
+			list-style: none;
+			margin: 0;
+			width: inherit;
+			height: auto;
+			padding : 20px;
+		}
+		
+		.pdlist > ul > li {
+/* 			background-color: #ccc; */
+			border : 1px solid #ccc;
+			float : left;
+			width: 200px;
+			height: 290px;
+			margin : 20px;
+		}
+		
+		.olcss {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			width: inherit;
+			height: 290px;
+		}
+		.olcss > li{
+			font-size: 13px;
+			font-weight: bold;
+			width: inherit;	
+		}
+		
+		.olcss > li:nth-of-type(1){
+			height: 200px;
+			text-align: center;
+		}
+		
+		.olcss > li:nth-of-type(2){
+			height: 60px;
+			text-align: center;
+		}
+		
+		.olcss > li:nth-of-type(3){
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+		}
+	</style>
+   </head>   
+   <body>
+	
+		<div class="pdlist">
+			<ul id="ul_product">
+<!-- 				<li> -->
+<!-- 					<ol class="olcss"> -->
+<!-- 						<li><img src="./product/product3.jpg"></li> -->
+<!-- 						<li>앱솔루트 망할</li> -->
+<!-- 						<li>1232323</li> -->
+					
+<!-- 					</ol> -->
+<!-- 				</li> -->
+			
+<!-- 			</ul> -->
+		
+		</div>
+
+   </body>
+   <script> 
+		var html = document.getElementById("ul_product");
+// 		console.log(product[키][반복문]);
+		var lihtml,ol,li,img;
+			
+		for(var p in product["pd"]){	// 상품 개수 4
+// 			console.log(p)
+			lihtml = document.createElement("li");
+			ol = document.createElement("ol");
+			ol.className ="olcss";
+			
+
+			for(var pp in product){	// 키 개수 3
+// 				console.log(pp)
+				li = document.createElement("li");
+				
+				var field;
+				if(pp == "pd"){
+					field = "img";
+					img = document.createElement("img");
+					img.src = product[field][p];
+					li.append(img)
+				}
+				else if (pp == "img"){
+					field = "pd";
+					li.innerHTML = product[field][p];
+// 					li.append(product[field][p]);
+				}
+				else if(pp == "money"){
+					field = pp;
+					li.append(Number(product[field][p]).toLocaleString());
+					
+				}
+// 				console.log(product[field][p])
+
+				
+// 			li.append(product[field][p]);	
+			ol.append(li);
+			}
+			
+			lihtml.append(ol);
+			html.append(lihtml);
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </script>
+</html>

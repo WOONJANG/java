@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+      <meta name="viewport" content="width=divice-width,initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="banners.css">
+      <title>  </title>
+      <script src="./banners.js?v=0001"></script>
+
+   </head>   
+   <body>
+      
+      <ul id="banners">
+<!--       	<li><a href=""><img sec=""></a></li> -->
+<!--       	<li><a href=""><img sec=""></a></li> -->
+<!--       	<li><a href=""><img sec=""></a></li> -->
+<!--       	<li><a href=""><img sec=""></a></li> -->
+<!--       	<li><a href=""><img sec=""></a></li> -->
+<!--       	<li><a href=""><img sec=""></a></li> -->
+     </ul>
+      
+   </body>
+   <script> 
+         
+//    console.log(banners);
+//    console.log(banners[0]["p_img"]);
+   	var html = document.getElementById("banner");
+	var html_li, html_a, html_img
+	banners.forEach(function (aa,bb,cc){	//aa : array / bb : index 
+	//li, a, img 가 돌아가야함	
+		html_li = document.createElement("li");
+		html_a = document.createElement("a");
+		html_img = document.createElement("img");
+
+		Object.keys(banners[bb]).forEach(function(a1,a2,a3){
+//			 a1 : key / a2 : key_index
+//			console.log(banners[bb][a1])
+			//href, src, title 가 돌아가야함
+//			html.href = banners[bb][a1][2];
+			switch (a1){
+				
+				case "p_title" :
+					html_img.title = banners[bb][a1];
+				break;
+				
+				case "p_img" : 
+					html_img.src = banners[bb][a1];
+				break;
+				
+				case "p_img" : 
+					html_a.href = banners[bb][a1];
+				break;
+			}
+		});
+		
+		html_a.append(html_img);
+		html_li.append(html_a);
+		html.append(html_li);
+});
+   
+   </script>
+</html>
