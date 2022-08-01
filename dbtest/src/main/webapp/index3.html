@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<!-- 		<meta name="viewport" content="width=divice-width,initial-scale=1.0"> -->
+		<title> 0801 간편 회원가입 만들기 </title>
+<!-- 		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+<!-- 		<link rel="stylesheet" type="text/css" href="./css/?v=00000000"> -->
+		<script>			
+		
+			function join_acc() {
+				if(frm.join_nm.value == ""){
+					alert("고객명 입력");
+					frm.join_nm.focus();
+				}
+				else if(frm.join_id.value == ""){
+					alert("아이디 입력");
+					frm.join_id.focus();
+				}
+				else if (frm.join_pw.value == ""){
+					alert("패스워드 입력");
+					frm.join_pw.focus();
+				}
+				else if (frm.join_email.value == ""){
+					alert("이메일 입력");
+					frm.join_email.focus();
+				}
+				else{
+					if(confirm("회원가입을 진행하시겠습니까?")){
+						frm.submit();
+					}
+				}
+			}
+		
+		
+		</script>
+		<style>
+
+			
+
+		</style>
+	</head>	
+	<body>
+ 		<form name="frm" id="frm" method="post" action="index3.do">
+ 			고객명 : <input type="text" name="join_nm"><br>
+ 			아이디 : <input type="text" name="join_id"><br>
+ 			패스워드 : <input type="password" name="join_pw"><br>
+ 			이메일 : <input type="text" name="join_email"><br>
+			<input type="button" value="회원가입" onclick="join_acc();">
+		</form>
+	</body>
+	<script> 
+			
+		
+	
+	</script>
+</html>
