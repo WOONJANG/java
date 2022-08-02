@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<!-- 		<meta name="viewport" content="width=divice-width,initial-scale=1.0"> -->
+		<title> 회원가입 </title>
+		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+		<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+		<script src="./js/join_ok.js?v=00000000"></script>
+		<script>			
+				
+
+				
+		$(function() {
+		// 제이쿼리 시작
+			
+		// 아이디 중복체크 버튼
+			$("#user_id_ck").click(function () {
+				var $id = $("#user_id").val();
+				if($id == ""){
+					alert("아이디를 입력해주세요.");
+				}
+				else{
+					// ajax (확장함수)로 확인 
+					$.fn.idcheck($id);
+				}
+			});
+		
+		
+// 		// 비밀번호 암호화 확인
+// 			var $pw = btoa("boyun981124@");
+// 			console.log($pw);
+			
+		// 휴대전화 포커스 함수
+			$("#user_tel").focus(function () {
+				if($('#tel_css').css('display') == 'none'){
+					$('#tel_css').css('display', 'block');
+				}
+			})
+		
+		// 주소찾기 버튼
+			$("#search_addr").postcodifyPopUp({
+				insertPostcode5 : "#zipcode",
+		        insertAddress : "#doro_addr"
+			});
+		
+		// 회원가입 완료 버튼
+			// join_ok.js
+		
+		
+		// 회원가입 취소 버튼
+			$("#join_cancle").click(function () {
+				if(!confirm("취소하면 입력하신 정보가 전부 사라집니다.")){
+				}
+				else{
+				location.href="./index.html";
+				}
+			});
+			
+			
+			
+		// 제이쿼리 마지막
+		});
+		
+		$.fn.idcheck = function ($id) {	//backend -> user_id 로 전달
+			$.ajax({
+				url : "loginck.do",
+				cache : false,
+				type : "POST",
+				data : {user_id : $id},
+				dataType : "text",
+				success : function ($data) {	// ok (중복 안 됨) no (중복 됨)
+					if($data == "no"){
+						alert("중복된 아이디");
+					}
+					else{
+						alert("사용 가능한 아이디");
+						$("#user_id").attr("readonly",true); // 중복이 안될경우 readonly로 변경
+						$("#ck").val($data);
+					}
+				},
+				error : function () {
+					console.log("통신 오류 발생");
+				}
+				
+			});
+		}
+
+		
+		</script>
+		<style>
+			a {text-decoration: none; color: black;}
+		</style>
+	</head>	
+	<body>
+		<form name="f" id="f">
+			<input type="hidden" name="ck" id="ck" value="">
+			아이디  <input type="text" name="user_id" id="user_id">
+			<input type="button" value="중복확인" id="user_id_ck" style="background-color:black; color:white; border:0;"><br>
+			패스워드  <input type="password" name="user_pw" id="user_pw"><br>
+			패스워드 확인  <input type="password" name="user_pw_ck" id="user_pw_ck"><br>
+			고객명  <input type="text" name="user_name" id="user_name"><br>
+			이메일  <input type="text" name="user_email" id="user_email"><br>
+			연락처  <input type="text" name="user_tel" id="user_tel" placeholder="ex) 01012345678" maxlength="11"><span id="tel_css" style="display : none; color:red; font-size: 7px; font-weight: bold;">※숫자만 입력하세요.</span><br>
+			주소  <input type="text" name="zipcode" id="zipcode" placeholder="우편번호 ex)12345" readonly>
+			<input type="button" value="주소찾기" id="search_addr" style="background-color:black; color:white; border:0;"><br>
+			<input type="text" name="doro_addr" id="doro_addr" readonly><br>
+			<input type="text" name="home_addr" id="home_addr"  placeholder="상세주소"><br>
+			<input type="button" value="회원가입" id="join_ok" style="background-color:black; color:white; border:0;">
+			<input type="button" value="가입취소" id="join_cancle" style=" background-color: #ccc; color : black; border:0px;">
+		</form>	
+	</body>
+	<script> 
+			
+		
+	
+	</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<!-- 		<meta name="viewport" content="width=divice-width,initial-scale=1.0"> -->
+		<title> 로그인 </title>
+<!-- 		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+<!-- 		<link rel="stylesheet" type="text/css" href="./css/jquery-ui.css?v=00000000"> -->
+		<script>			
+				
+			function login() {
+				if(f.user_id.value == ""){
+					alert("아이디를 입력하세요.");
+					return false;
+				}
+				else if(f.user_pw.value == ""){
+					alert("패스워드를 입력하세요.")	
+					return false;
+				}
+				else{
+					f.method = "POST";
+					f.action = "login.do";
+					f.enctype = "application/x-www-form-urlencoded";
+					f.submit();
+				}
+			}
+				
+				
+				
+				
+		
+		</script>
+		<style>
+			a {text-decoration: none; color: black;}
+		</style>
+	</head>	
+	<body>
+		<form name="f" id="f" onsubmit="return login();">
+			<input type="text" id="user_id"><br>
+			<input type="password" id="user_pw"><br>
+			<input type="submit" value="로그인"><br>
+			<a href="./join.html">[회원가입]</a>
+			<a href="./pass_search.html">[아이디 및 패스워드 찾기]</a><br>
+		</form>
+	</body>
+	<script> 
+			
+		
+	
+	</script>
+</html>
