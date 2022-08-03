@@ -20,7 +20,7 @@
 				}
 				else{
 					f.method = "POST";
-					f.action = "login.do";
+					f.action = "loginok.do";
 					f.enctype = "application/x-www-form-urlencoded";
 					f.submit();
 				}
@@ -37,8 +37,8 @@
 	</head>	
 	<body>
 		<form name="f" id="f" onsubmit="return login();">
-			<input type="text" id="user_id"><br>
-			<input type="password" id="user_pw"><br>
+			<input type="text" name="user_id" id="user_id"><br>
+			<input type="password" name="user_pw" id="user_pw"><br>
 			<input type="submit" value="로그인"><br>
 			<a href="./join.html">[회원가입]</a>
 			<a href="./pass_search.html">[아이디 및 패스워드 찾기]</a><br>
