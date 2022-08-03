@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+		<title> 파일 업로드 기능 </title>
+		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>			<link rel="stylesheet" type="text/css" href="./css/jquery-ui.css?v=00000000">
+		<script>			
+		
+		
+			function abc() {
+				f.submit();
+			}
+		
+		
+		
+		
+		
+			$(function() {
+				
+				
+				
+			});
+		
+		</script>
+		<style>
+
+			
+
+		</style>
+	</head>	
+	<body>
+		<!-- 파일 첨부 기능이 있을 경우 무조건 post로만 전송이된다. GET 사용불가 -->	<!-- 파일첨부할때! multipart/form-data -->
+		<form name="f" id="f" method="post" action="./fileuploadok.do" enctype="multipart/form-data">
+			<input type="text" name="mid">
+			<input type="file" name="file" accept="image/*">
+			<input type="button" value="전송" onclick="abc();">
+		</form>
+	</body>
+	<script> 
+			
+		
+	
+	</script>
+</html>

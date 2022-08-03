@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+		<title> 리뷰 작성페이지 </title>
+		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>			
+		<script src="./js/review_write.js?v=00000000"></script>
+		<style>
+
+		</style>
+	</head>	
+	<body>
+		<div>
+			<form name="f" id="f" method="post" action="./review_insert.do">
+				<legend><b>[상품 리뷰 작성 페이지]</b></legend>
+				고객명<input type="text" name="user_name" id="user_name">
+				<br>
+				상품명<input type="text" name="user_product" id="user_product">
+				<br>
+				평점
+				<input type="radio" name="rd" id="rd" value="5" checked>5점
+				<input type="radio" name="rd" id="rd" value="4">4점
+				<input type="radio" name="rd" id="rd" value="3">3점
+				<input type="radio" name="rd" id="rd" value="2">2점
+				<input type="radio" name="rd" id="rd" value="1">1점<br>
+				내용<br><textarea cols="35" rows="10" name="user_review_text" id="user_review_text"></textarea>
+				<br>
+				<input type="button" value="작성완료" id="submit_btn" style="background-color: black; color:white; outline: none;">
+				<input type="button" value="작성취소" id="cancle_btn" style="background-color: black; color:white; outline: none;">
+			</form>
+		</div>
+	</body>
+	<script> 
+			
+		
+	
+	</script>
+</html>
