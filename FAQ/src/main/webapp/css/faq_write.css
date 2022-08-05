@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+	/*	Base code	*/
+	body{
+		margin : 0;
+		padding : 0;
+		background-color: none;
+	}
+	a{
+		text-decoration-line : none;
+	}
+	span,label{
+		display : block;
+	}
+	ul,ol,li {
+		list-style: none;
+		margin : 0;
+		padding : 0;
+	}
