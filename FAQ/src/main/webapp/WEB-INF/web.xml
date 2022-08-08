@@ -33,10 +33,35 @@
   
   
   
+    <servlet>
+  	<servlet-name>faq_delete</servlet-name>
+  	<servlet-class>config.faq_delete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>faq_delete</servlet-name>
+  	<url-pattern>/faq_delete.do</url-pattern>
+  </servlet-mapping>  
   
   
   
+    <servlet>
+  	<servlet-name>faq_view</servlet-name>
+  	<servlet-class>config.faq_view</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>faq_view</servlet-name>
+  	<url-pattern>/faq_view.html</url-pattern>
+  </servlet-mapping>   
   
+  
+    <servlet>
+  	<servlet-name>faq_update</servlet-name>
+  	<servlet-class>config.faq_update</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>faq_update</servlet-name>
+  	<url-pattern>/faq_update.do</url-pattern>
+  </servlet-mapping>  
   
   
   

@@ -19,7 +19,7 @@ public class faq_select_module {
 	Connection CT = null;
 	PreparedStatement PS = null;
 	public String getFIDX() {
-		return this.FCATEGORY;
+		return this.FIDX;
 	}
 	public void setFIDX(String fIDX) {
 		this.FIDX = fIDX;

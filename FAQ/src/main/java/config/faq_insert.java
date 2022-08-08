@@ -10,7 +10,7 @@ import javax.servlet.http.*;
 
 public class faq_insert extends HttpServlet {
 	
-	String FCATEGORY, FUSER , FQ , FA , VIEW, URL, TIME;
+	String IDX, FCATEGORY, FUSER , FQ , FA , VIEW, URL, TIME;
 	PrintWriter PR = null;
 	private static final long serialVersionUID = 1L;
        
