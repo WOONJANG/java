@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>설문조사 입력</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+	$(function(){
+		
+		$("#submit_btn").click(function(){
+			
+		const $NAME = $("#user_name").val();
+		const $ID = $("#user_id").val();
+		const $TEL = $("#user_tel").val();
+		
+		if($NAME == ""){
+			alert("고객명을 입력하세요.");
+			$("#user_name").focus();
+			return false;
+		}
+		else if($ID == ""){
+			alert("아이디를 입력하세요.");
+			$("#user_id").focus();
+			return false;
+		}
+		else if($TEL == "" || $TEL.length < 10){
+			alert("전화번호를 10자리 이상 입력하세요.");
+			$("#user_tel").focus();
+			return false;
+		}
+		else{
+			return;
+		}
+		});
+		
+		
+		
+		
+		
+	});
+</script>
+</head>
+<body>
+	<p>[가장 어려운 Back-End 과목은?]</p>
+	<form name="f" method="post" action="./pollok.jsp" enctype="application/x-www-form-urlencoded">
+		고객명 <input type="text" name="user_name" id="user_name"><br>
+		아이디 <input type="text" name="user_id" id="user_id"><br>
+		연락처 <input type="text" name="user_tel" id="user_tel" maxlength="11" placeholder="예)01012345678 숫자만" onKeyup="this.value=this.value.replace(/[^-0-9]/g,'');"/><br>
+		<label><input type="radio" name="rd" value ="0">JAVA</label><br>
+		<label><input type="radio" name="rd" value ="1">JAVA Servlet</label><br>
+		<label><input type="radio" name="rd" value ="2" checked>Javascript</label><br>
+		<label><input type="radio" name="rd" value ="3">AJAX</label><br>
+		<label><input type="radio" name="rd" value ="4">JSP</label><br>
+		<label><input type="submit" value="설문조사 참여" id="submit_btn">
+	</form>	
+</body>
+</html>
