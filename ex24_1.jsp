@@ -37,9 +37,9 @@ String search = request.getParameter("search").intern();
 				a_psales = product[w][2];
 				ck=true;
 				%>
-				<jsp:include page="ex24.jsp">
-				<jsp:param value="<%=search %>" name="search"></jsp:param>
-				</jsp:include>
+<%-- 				<jsp:include page="ex24.jsp"> --%>
+<%-- 				<jsp:param value="<%=search %>" name="search"></jsp:param> --%>
+<%-- 				</jsp:include> --%>
 				<% 
 				if(a_pmoney != ""){	// 가격이 비어있지 않을 경우
 					
@@ -57,13 +57,10 @@ String search = request.getParameter("search").intern();
 			}
 			w++;
 		}
-%>
-<%
 	if(ck=false){	// 모든 배열을 반복해서 값을 확인하지 못할경우
 	%>	
 	<span>상품명을 다시 확인 해주세요</span>
-	<%}
-%>
+	<%}%>
 
 <%--
 

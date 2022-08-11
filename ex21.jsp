@@ -17,6 +17,7 @@
 4. ex21에서는  ex21_2에서 추가된 매개변수를 출력하게 된다.
  -->
 <p>회원정보 확인</p>
+<% request.setCharacterEncoding("UTF-8"); %>
 <jsp:include page="./ex21_1.jsp" flush="false">
 	<jsp:param value="yi" name="mid"></jsp:param>
 	<jsp:param value="이순신" name="mnm"></jsp:param>

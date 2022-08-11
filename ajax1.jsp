@@ -33,6 +33,7 @@
 // 					}
 				}
 			}
+			// 변수명 =  http://연결ip:8080/연결디렉토리및파일?약속된파라미터= 상대키값
 			var gopage="http://192.168.1.207:8080/faq/data.jsp?apikey=aa";
 // 			var gopage="./ajax1_ok.jsp?mid=" + id;
 			aj = wck();

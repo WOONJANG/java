@@ -12,7 +12,7 @@
 	// A서버에서 자신의 서버로 접속시 허락된 파라미터
 	String aa = request.getParameter("apikey").intern();
 	
-	if(aa=="aaaa"){
+	if(aa=="aaaa"){	// 내가 지정한 키 값 : aaaa
 		String arr[][] = {
 				{"NO1","박"},
 				{"JJANG","오"}
