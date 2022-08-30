@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${number1} + ${number2}<br>
-	합계 : ${number1+number2}<br>
-	합계 : ${sum}
+	입력 결과 확인 : ${msg}
 </body>
 </html>

@@ -4,11 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>URL Mapping 사용법</title>
 </head>
 <body>
-	${number1} + ${number2}<br>
-	합계 : ${number1+number2}<br>
-	합계 : ${sum}
+	<a href="getinfo/t1">get t1</a><br>
+	<a href="getinfo/t2">post t2</a>
 </body>
 </html>

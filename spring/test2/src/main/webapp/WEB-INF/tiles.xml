@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+       <!-- put-attribute:view 페이지를 해당 name값으로 별명 명칭을 적용 한 후 
+       template 페이지에 적용하도록 설정 할 수 있음
+       template :  사용자가 접속하는 페이지 주소 -->
+<tiles-definitions>
+  <definition name="contact.contact" template="/WEB-INF/view/contact/contact.jsp">
+    <put-attribute name="title" value="고객센터" />
+    <put-attribute name="header" value="/WEB-INF/view/top.jsp" />
+<!--     <put-attribute name="menu" value="/tiles/common_menu.jsp" /> -->
+<!--     <put-attribute name="body" value="/tiles/home_body.jsp" /> -->
+    <put-attribute name="footer" value="/WEB-INF/view/footer.jsp" />
+  </definition>
+  
+  <definition name="info.myinfo" template="/WEB-INF/view/info/myinfo.jsp">
+    <put-attribute name="title" value="MYINFO" />
+    <put-attribute name="header" value="/WEB-INF/view/top.jsp" />
+<!--     <put-attribute name="menu" value="/tiles/common_menu.jsp" /> -->
+<!--     <put-attribute name="body" value="/tiles/home_body.jsp" /> -->
+    <put-attribute name="footer" value="/WEB-INF/view/footer.jsp" />
+  </definition>
+  
+  <definition name="qa.qalist" template="/WEB-INF/view/qa/qalist.jsp">
+    <put-attribute name="title" value="QA" />
+    <put-attribute name="header" value="/WEB-INF/view/top.jsp" />
+<!--     <put-attribute name="menu" value="/tiles/common_menu.jsp" /> -->
+<!--     <put-attribute name="body" value="/tiles/home_body.jsp" /> -->
+    <put-attribute name="footer" value="/WEB-INF/view/footer.jsp" />
+  </definition>
+</tiles-definitions>

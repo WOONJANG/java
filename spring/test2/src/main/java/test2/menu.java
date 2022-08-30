@@ -6,24 +6,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-public class main implements Controller {
+public class menu implements Controller{
 
-	// spring MBC Controller 에서 사용하는 기본 객체 메소드
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ModelAndView MV = new ModelAndView();
+		ModelAndView MV = new ModelAndView("menu");
 		
-		int a = 50;
-		int b = 80;
-		int c = a + b;
-		MV.addObject("sum",c);
-		
-		MV.addObject("number1",50);
-		MV.addObject("number2",80);
-		MV.setViewName("/WEB-INF/view/main.jsp");
 		return MV;
 	}
 
-	
-	
 }
