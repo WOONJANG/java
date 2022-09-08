@@ -64,11 +64,11 @@ public class movie_api {
 					
 					result = ja.toString();
 				} else {
-					result = "error : 32 (api key error)";
+					result = "error : {해당 API키값이 올바르지 않습니다.}";
 				}
 			}
 		} catch (Exception e) {
-			result = "error : 31 (Exception error)";
+			result = "error : {해당 API키값이 올바르지 않습니다.}";
 		}
 		return result;
 	}

@@ -20,17 +20,15 @@
 	</table>
 </body>
 <script>
-	/*	Front(ajax)는 apikey의 날짜를 파라미터에 적용하여 GETd으로 전달함	*/
-	let today = "2022-09-08";	// mysql 저장된 날짜
-	let apikey = "movie_146";
+	let today = "2022-09-08";
 	let ajax = new XMLHttpRequest();
-	ajax.open("GET", "http://localhost:8080/webpage/movie?apikey=" + apikey + "&apidate=" + today, true);
+	ajax.open("GET", "http://localhost:8080/webpage/movie?apikey=movie_146&apidate=" + today, true);
 	ajax.send();
 	
 	ajax.onreadystatechange = function(){
 		if(ajax.status == 200 && ajax.readyState == XMLHttpRequest.DONE){
-			let mdata = JSON.parse(ajax.response);
 // 			console.log(ajax.response);
+			var mdata = JSON.parse(ajax.response);
 // 			console.log(mdata);
 			html_print(mdata);
 		}
